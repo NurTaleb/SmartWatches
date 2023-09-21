@@ -640,7 +640,7 @@ button {
     gap: 2rem;
   }
 
-  .footer__container {
+  .manswatch__container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
