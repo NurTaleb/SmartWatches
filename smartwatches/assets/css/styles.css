@@ -1,0 +1,786 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Open+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --header-height: 3.5rem;
+  --container-color: #ffffff;
+  --body-color: hsl(0, 0%, 100%);
+
+ 
+  --body-font: 'Crimson', sans-serif;
+  --biggest-font-size: 1.5rem;
+  --h1-font-size: 1rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 1.25rem;
+  --small-font-size: .800rem;
+  --smaller-font-size: .68rem;
+  --normal-font-size: .950rem;
+
+
+  --font-medium: 550;
+  --font-bold: 740;
+
+ 
+  --mb-0-5: 0.5rem;
+  --mb-0-5: .5rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2-5: 2.5rem;
+  --mb-2-5: 2.5rem;
+  --mb-3-5: 3.5rem;
+
+
+  --z-tooltip: 12;
+  --z-fixed: 80;
+}
+
+@media screen and (min-width: 330px) {
+  :root {
+    --biggest-font-size: 2.6rem;
+    --h1-font-size: 2.3rem;
+    --h2-font-size: 1.7rem;
+    --h3-font-size: 1.27rem;
+    --normal-font-size: 1.2rem;
+    --small-font-size: .889rem;
+    --smaller-font-size: .800rem;
+  }
+}
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input {
+  font-family: var(--body-font);
+  font-size: 0.950rem;
+}
+
+
+h1, h2, h3, h4 {
+  color: black;
+  font-weight: var(--font-small);
+}
+
+ul {
+  list-style: circle;
+}
+
+a {
+  text-decoration:dotted;
+}
+
+img {
+  max-width: 95%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border:black;
+  outline: none;
+}
+
+
+.container {
+  max-width: 1020px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.section {
+  padding: 6.7rem 0 2rem;
+}
+
+.section__title {
+  position: relative;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align:center
+}
+
+.section__title::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70px;
+  height: 1.5px;
+  background-color: darkred;
+}
+
+
+.header {
+  width: 95%;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+
+}
+
+.nav {
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo, 
+.nav__toggle, 
+.nav__shop, 
+.nav__close {
+  color: black;
+}
+
+.nav__logo {
+  text-transform: uppercase;
+  font-weight: 740;
+  letter-spacing: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  column-gap: .3rem;
+}
+
+.nav__logo-icon {
+  font-size: 20px;
+}
+
+.nav__btns {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+.nav__toggle, 
+.nav__shop
+ {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .nav__menu {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    right: -98%;
+    width: 98%;
+    height: 98%;
+    padding: 6rem 2rem 3.5rem;
+    transition: .2s;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  row-gap: 2.5rem;
+  flex-direction: column;
+}
+
+.nav__link {
+  color: black;
+  font-weight: 550;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: .2s;
+}
+
+.nav__link:hover {
+  color: darkred;
+}
+
+.nav__close {
+  font-size: 2.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+  cursor: pointer;
+}
+
+.show-menu {
+  right: 0;
+}
+
+
+.scroll-header {
+  background-color: black;
+  box-shadow: 0 0.8px 2px hsla(0, 77%, 36%, 0.1);
+}
+
+.active-link {
+  color: darkred;
+}
+
+.home__container {
+  position: center;
+  row-gap: 3rem;
+}
+
+.home__label {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  margin-left: 1.7rem;
+}
+
+.home__pic {
+  width: 2400px;
+}
+
+.home__pic-bg {
+  background-color: white;
+  width: 260px;
+  height: 405px;
+  padding-bottom: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  justify-self: flex-end;
+  transform: 1rem;
+}
+
+.home__social {
+  position: absolute;
+  top: 40%;
+  left: -5rem;
+  transform: rotate(-88deg);
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+
+
+
+
+.home__detail {
+  margin-bottom: 2rem;
+  margin-left: 1.7rem;
+}
+
+.home__price {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: darkred;
+  margin-bottom: 3rem;
+  margin-left: 1.7rem;
+}
+
+.home__btns {
+  display: flex;
+  align-items: end;
+  margin-left: 1.7rem;
+}
+
+.home__button {
+  box-shadow: 0 14px 26px hsla(0, 17%, 67%, 0.2);
+}
+
+.button {
+  display: inline-block;
+  background-color: #4c3e3e;
+  color: #ffffff;
+  padding: 1.1rem 1.1rem;
+  font-weight: 550;
+  transition: .5s;
+}
+
+.button:hover {
+  background-color: darkred;
+}
+
+.button--red {
+  background-color: hwb(0 63% 7% / 0.415);
+  color: darkred;
+}
+
+.button--red:hover {
+  background-color: #9c2e2e;
+}
+
+.button--small {
+  padding: 1.1rem 2rem;
+}
+
+
+.manswatch__crate {
+  row-gap: 3rem;
+}
+
+.manswatch__card {
+  position: relative;
+  text-align: center;
+  background-color: white;
+  padding-top: 2rem;
+  border: 1px solid darkred;
+  overflow-y: hidden;
+  transition: .3s;
+}
+
+.manswatch__tag {
+  background-color: darkred;
+  padding: 0.7rem 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: .800rem;
+  font-weight: 550;
+  position: absolute;
+  transform: rotate(-360deg);
+  left: -1rem;
+  top: 0.01rem;
+}
+
+.manswatch__img {
+  height: 150px;
+  margin-bottom: 2rem;
+}
+
+.manswatch__title, 
+.manswatch__price {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.manswatch__title {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.manswatch__price {
+  display: block;
+  color: darkred;
+  transition: .3s;
+}
+
+.manswatch__button {
+  font-size: 0.800rem;
+  transform: translateY(1rem);
+  opacity: 0;
+}
+
+.manswatch__card:hover {
+  box-shadow: darkred;
+  padding: 1.5rem 0 2.5rem 0;
+}
+
+.manswatch__card:hover .manswatch__button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.manswatch__card:hover .manswatch__price {
+  margin-bottom: 1rem;
+}
+
+
+.womenswatch__crate {
+  row-gap: 3rem;
+}
+
+.womenswatch__card {
+  position: relative;
+  text-align: center;
+  background-color: white;
+  padding-top: 2rem;
+  border: 1px solid darkred;
+  overflow-y: hidden;
+  transition: .3s;
+}
+
+.womenswatch__tag {
+  background-color: darkred;
+  padding:  0.7rem 1.2rem;;
+  color: white;
+  text-transform: uppercase;
+  font-size: .800rem;
+  font-weight: 550;
+  position: absolute;
+  transform: rotate(-360deg);
+  left: -1.1rem;
+  top: 0.01rem;
+}
+
+.womenswatch__img {
+  height: 150px;
+  margin-bottom: 2rem;
+}
+
+.womenswatch__title, 
+.womenswatch__price {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.womenswatch__title {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.womenswatch__price {
+  display: block;
+  color: darkred;
+  transition: .3s;
+}
+
+.womenswatch__button {
+  font-size: var(--small-font-size);
+  transform: translateY(1rem);
+  opacity: 0;
+}
+
+.womenswatch__card:hover {
+  box-shadow: darkred;
+  padding: 1.5rem 0 2.5rem 0;
+}
+
+.womenswatch__card:hover .womenswatch__button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.womenswatch__card:hover .womenswatch__price {
+  margin-bottom: 1rem;
+}
+
+
+.newwatches__crate {
+  row-gap: 3rem;
+}
+
+.newwatches__card {
+  position: relative;
+  text-align: center;
+  background-color: white;
+  padding-top: 2rem;
+  border: 1px solid darkred;
+  overflow-y: hidden;
+  transition: .3s;
+}
+
+.newwatches__tag {
+  background-color: darkred;
+  padding:  0.7rem 1.2rem;;
+  color: white;
+  text-transform: uppercase;
+  font-size: .800;
+  font-weight: 550;
+  position: absolute;
+  transform: rotate(-360deg);
+  left: -1.1rem;
+  top: 0.01rem;
+}
+
+.newwatches__img {
+  height: 150px;
+  margin-bottom: 2rem;
+}
+
+.newwatches__title, 
+.newwatches__price {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.newwatches__title {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.newwatches__price {
+  display: block;
+  color: darkred;
+  transition: .3s;
+}
+
+.newwatches__button {
+  font-size: .800;
+  transform: translateY(1rem);
+  opacity: 0;
+}
+
+.newwatches__card:hover {
+  box-shadow: darkred;
+  padding: 1.5rem 0 2.5rem 0;
+}
+
+.newwatches__card:hover .newwatches__button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.newwatches__card:hover .newwatches__price {
+  margin-bottom: 1rem;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: initial;
+  bottom: 7%;
+  width: initial;
+  height: initial;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px hsla(0, 2%, 12%, 0.1);
+  padding: .27rem;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.swiper-button-next {
+  right: initial;
+  left: 3.5rem;
+}
+
+
+/*::-webkit-scrollbar {
+  width: 1rem;
+  background: hsl(269, 88%, 53%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(230, 100%, 50%);
+}*/
+
+
+.cart {
+  position: fixed;
+  background-color: #ffffff;
+  z-index: var(--z-fixed);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  padding: 3rem 1.5rem;
+  transition: .3s;
+}
+
+.cart__center-title {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cart__close {
+  font-size: 2rem;
+  color: darkred;
+  position: absolute;
+  top: 1.3rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.cart__values {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-cart {
+  right: 0;
+}
+
+
+
+@media screen and (max-width: 375px) {
+  .container {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+  .home__img-bg {
+    width: 240px;
+  }
+  .home__title {
+    font-size: 1rem;
+  }
+  .home__button {
+    font-size: .68rem;
+  }
+
+
+  .womenswatch__container {
+    grid-template-columns: repeat(1, 182px);
+    justify-content: center;
+  }
+}
+
+
+@media screen and (min-width: 580px) {
+  .home__pic-bg {
+    width: 380px;
+  }
+
+  .manswatch__container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .section {
+    padding: 8rem 0 1rem;
+  }
+
+  .cart {
+    width: 450px;
+    box-shadow: -3px 0 5px hsla(0, 4%, 11%, 0.1);
+  }
+
+  .nav {
+    height: 0.68rem + 1.8rem;
+    justify-content: initial;
+    column-gap: 3rem;
+  }
+  .nav__toggle, 
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4.2rem;
+  }
+  .nav__link {
+    text-transform: initial;
+    font-size: 1.2rem;
+  }
+  .nav__btns {
+    margin-left: auto;
+  }
+
+  .home__container {
+    padding-top: 4rem;
+    grid-template-columns: 2fr max-content;
+    align-items: center;
+  }
+  .home__pic-bg {
+    order: 1;
+    transform: translate(1rem, -18rem);
+  }
+  .home__data {
+    padding: 4rem 8rem;
+  }
+  .home__social {
+    top: 55%;
+    column-gap: 4rem;
+  }
+
+  .manswatch__title,
+  .manswatch__price,
+  .newwatches__title,
+  .newwatches__price {
+    font-size: .950rem;
+  }
+
+  .womenswatch__container {
+    grid-template-columns: repeat(2, 180px);
+    justify-content: center;
+    gap: 3rem;
+  }
+  .womenswatch__card {
+    padding: 1rem 0;
+  }
+  .womenswatch__img {
+    height: 160px;
+  }
+
+}
+
+@media screen and (min-width: 1000px) {
+  .section__title {
+    font-size: 20px;
+  }
+
+  .home__container {
+    column-gap: 3rem;
+  }
+  .home__pic-bg {
+    width: 500px;
+    height: 680px;
+  }
+  .home__img {
+    width: 250px;
+    margin-left: 8rem;
+    margin-top: 1rem;
+  }
+ 
+  .home__data {
+    padding: 0  5rem 2rem;
+  }
+
+  .manswatch__crate {
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 3rem;
+  }
+
+  .womenswatch__crate {
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 3rem;
+  }
+
+  .newwatches__crate {
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 3rem;
+  }
+
+
+  .womenswatch__container,
+  .newwatches__container {
+    padding-top: 2rem;
+  }
+
+}
+@media screen and (min-width: 1444px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  .scrollup {
+    right: 3rem;
+  }
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.section__title {
+  font-size: 20px;
+}
+
+
+.scrollup {
+  right: 3rem;
+}
+
